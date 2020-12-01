@@ -1,14 +1,15 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_classom/components/button.dart';
 import 'package:intl/intl.dart';
 
-class Home extends StatefulWidget {
+class Room extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _RoomState createState() => _RoomState();
 }
 
-class _HomeState extends State<Home> {
+class _RoomState extends State<Room> {
   String _timeString;
   Timer _timerClock;
 
@@ -45,7 +46,7 @@ class _HomeState extends State<Home> {
           width: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("images/main/background.jpg"),
+              image: AssetImage("images/room/background.jpg"),
               colorFilter: ColorFilter.mode(
                   Colors.black.withOpacity(0.6), BlendMode.darken),
               fit: BoxFit.fill,
@@ -67,76 +68,68 @@ class _HomeState extends State<Home> {
                   right: 15.0,
                 ),
               ),
+              SizedBox(height: 80.0),
               Text(
-                'Classom',
+                '룸서비스',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 180,
-                  fontFamily: 'Gabriola',
+                  fontSize: 60,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                '안녕하세요, 호텔 Classom 입니다.',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 60.0),
+              SizedBox(height: 100.0),
               Row(
                 children: [
                   Expanded(
                     child: GestureDetector(
+                      child: Button(
+                        title: '한식',
+                        image: 'images/room/korean.png',
+                      ),
                       onTap: () {
                         setState(() {
-                          Navigator.pushNamed(context, '/claim');
+                          Navigator.pushNamed(context, '/room/korean');
                         });
                       },
-                      child: Button(
-                        image: 'images/main/claim.png',
-                        title: '요청사항',
-                      ),
                     ),
                   ),
                   Expanded(
                     child: GestureDetector(
+                      child: Button(
+                        title: '양식',
+                        image: 'images/room/western.png',
+                      ),
                       onTap: () {
                         setState(() {
-                          Navigator.pushNamed(context, '/room');
+                          Navigator.pushNamed(context, '/room/western');
                         });
                       },
-                      child: Button(
-                        image: 'images/main/roomservice.png',
-                        title: '룸서비스',
-                      ),
                     ),
                   ),
                   Expanded(
                     child: GestureDetector(
+                      child: Button(
+                        title: '일식/중식',
+                        image: 'images/room/other.png',
+                      ),
                       onTap: () {
                         setState(() {
-                          print("pressed parking");
+                          Navigator.pushNamed(context, '/room/other');
                         });
                       },
-                      child: Button(
-                        image: 'images/main/parking.png',
-                        title: '주차현황',
-                      ),
                     ),
                   ),
                   Expanded(
                     child: GestureDetector(
+                      child: Button(
+                        title: '커피/음료',
+                        image: 'images/room/drink.png',
+                      ),
                       onTap: () {
                         setState(() {
-                          Navigator.pushNamed(context, '/facility');
+                          Navigator.pushNamed(context, '/room/drink');
                         });
                       },
-                      child: Button(
-                        image: 'images/main/facility.png',
-                        title: '시설정보',
-                      ),
                     ),
                   ),
                 ],

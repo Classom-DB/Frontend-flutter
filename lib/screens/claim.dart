@@ -1,14 +1,15 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_classom/components/button.dart';
 import 'package:intl/intl.dart';
 
-class Home extends StatefulWidget {
+class Claim extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _ClaimState createState() => _ClaimState();
 }
 
-class _HomeState extends State<Home> {
+class _ClaimState extends State<Claim> {
   String _timeString;
   Timer _timerClock;
 
@@ -45,7 +46,7 @@ class _HomeState extends State<Home> {
           width: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("images/main/background.jpg"),
+              image: AssetImage("images/claim/background.png"),
               colorFilter: ColorFilter.mode(
                   Colors.black.withOpacity(0.6), BlendMode.darken),
               fit: BoxFit.fill,
@@ -67,20 +68,12 @@ class _HomeState extends State<Home> {
                   right: 15.0,
                 ),
               ),
+              SizedBox(height: 20.0),
               Text(
-                'Classom',
+                '요청 사항',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 180,
-                  fontFamily: 'Gabriola',
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                '안녕하세요, 호텔 Classom 입니다.',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 40,
+                  fontSize: 60,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -91,12 +84,12 @@ class _HomeState extends State<Home> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          Navigator.pushNamed(context, '/claim');
+                          print("pressed claim");
                         });
                       },
                       child: Button(
-                        image: 'images/main/claim.png',
-                        title: '요청사항',
+                        image: 'images/claim/item.png',
+                        title: '객실 물품',
                       ),
                     ),
                   ),
@@ -104,12 +97,12 @@ class _HomeState extends State<Home> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          Navigator.pushNamed(context, '/room');
+                          print('pressed fix');
                         });
                       },
                       child: Button(
-                        image: 'images/main/roomservice.png',
-                        title: '룸서비스',
+                        image: 'images/claim/fix.png',
+                        title: '객실 정비',
                       ),
                     ),
                   ),
@@ -117,12 +110,12 @@ class _HomeState extends State<Home> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          print("pressed parking");
+                          print("pressed change");
                         });
                       },
                       child: Button(
-                        image: 'images/main/parking.png',
-                        title: '주차현황',
+                        image: 'images/claim/change.png',
+                        title: '객실 교체',
                       ),
                     ),
                   ),
@@ -130,12 +123,12 @@ class _HomeState extends State<Home> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          Navigator.pushNamed(context, '/facility');
+                          print("pressed other");
                         });
                       },
                       child: Button(
-                        image: 'images/main/facility.png',
-                        title: '시설정보',
+                        image: 'images/claim/other.png',
+                        title: '기타 요청',
                       ),
                     ),
                   ),
@@ -146,5 +139,6 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
+    ;
   }
 }

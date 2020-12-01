@@ -49,7 +49,7 @@ class _FacilityState extends State<Facility> {
             image: DecorationImage(
               image: AssetImage("images/facility/background.jpg"),
               colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.4), BlendMode.darken),
+                  Colors.black.withOpacity(0.6), BlendMode.darken),
               fit: BoxFit.fill,
             ),
           ),
@@ -93,9 +93,8 @@ class _FacilityState extends State<Facility> {
                       },
                       child: Button(
                         title: '결혼식장',
-                        image: tap[0] == 0
-                            ? Image.asset('images/facility/wedding.png')
-                            : null,
+                        image:
+                            tap[0] == 0 ? 'images/facility/wedding.png' : null,
                         text: tap[0] == 1 ? '2층\n 10:00 ~ 21:00' : null,
                       ),
                     ),
@@ -113,7 +112,7 @@ class _FacilityState extends State<Facility> {
                       child: Button(
                         title: '레스토랑',
                         image: tap[1] == 0
-                            ? Image.asset('images/facility/restaurant.png')
+                            ? 'images/facility/restaurant.png'
                             : null,
                         text: tap[1] == 1 ? '21층\n 11:30 ~ 22:00' : null,
                       ),
@@ -131,9 +130,7 @@ class _FacilityState extends State<Facility> {
                       },
                       child: Button(
                         title: '라운지',
-                        image: tap[2] == 0
-                            ? Image.asset('images/facility/rounge.png')
-                            : null,
+                        image: tap[2] == 0 ? 'images/facility/bar2.png' : null,
                         text: tap[2] == 1 ? '21층\n 09:00 ~ 22:00' : null,
                       ),
                     ),
@@ -150,9 +147,7 @@ class _FacilityState extends State<Facility> {
                       },
                       child: Button(
                         title: '바',
-                        image: tap[3] == 0
-                            ? Image.asset('images/facility/bar.png')
-                            : null,
+                        image: tap[3] == 0 ? 'images/facility/bar.png' : null,
                         text: tap[3] == 1 ? '1층\n 19:00 ~ 02:00' : null,
                       ),
                     ),
@@ -173,9 +168,7 @@ class _FacilityState extends State<Facility> {
                       },
                       child: Button(
                         title: '연회장',
-                        image: tap[4] == 0
-                            ? Image.asset('images/facility/hall.png')
-                            : null,
+                        image: tap[4] == 0 ? 'images/facility/hall.png' : null,
                         text: tap[4] == 1 ? '3층\n 10:00 ~ 21:00' : null,
                       ),
                     ),
@@ -192,9 +185,8 @@ class _FacilityState extends State<Facility> {
                       },
                       child: Button(
                         title: '피트니스',
-                        image: tap[5] == 0
-                            ? Image.asset('images/facility/fitness.png')
-                            : null,
+                        image:
+                            tap[5] == 0 ? 'images/facility/fitness.png' : null,
                         text: tap[5] == 1 ? '5층\n 07:00 ~ 22:00' : null,
                       ),
                     ),
@@ -203,18 +195,16 @@ class _FacilityState extends State<Facility> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          if (tap[0] == 0)
-                            tap[0] = 1;
+                          if (tap[6] == 0)
+                            tap[6] = 1;
                           else
-                            tap[0] = 0;
+                            tap[6] = 0;
                         });
                       },
                       child: Button(
                         title: '스파',
-                        image: tap[0] == 0
-                            ? Image.asset('images/facility/spa.png')
-                            : null,
-                        text: tap[0] == 1 ? '5층\n 07:00 ~ 22:00' : null,
+                        image: tap[6] == 0 ? 'images/facility/spa.png' : null,
+                        text: tap[6] == 1 ? '5층\n 07:00 ~ 22:00' : null,
                       ),
                     ),
                   ),
@@ -222,18 +212,16 @@ class _FacilityState extends State<Facility> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          if (tap[0] == 0)
-                            tap[0] = 1;
+                          if (tap[7] == 0)
+                            tap[7] = 1;
                           else
-                            tap[0] = 0;
+                            tap[7] = 0;
                         });
                       },
                       child: Button(
                         title: '수영장',
-                        image: tap[0] == 0
-                            ? Image.asset('images/facility/pool.png')
-                            : null,
-                        text: tap[0] == 1 ? '4층\n 10:00 ~ 21:00' : null,
+                        image: tap[7] == 0 ? 'images/facility/pool.png' : null,
+                        text: tap[7] == 1 ? '4층\n 10:00 ~ 21:00' : null,
                       ),
                     ),
                   ),

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-class Box extends StatelessWidget {
-  Box({@required this.title, this.image, this.info});
+class Item extends StatelessWidget {
+  Item({@required this.title, @required this.image});
 
   final String title;
   final String image;
-  final String info;
 
   @override
   Widget build(BuildContext context) {
@@ -14,16 +13,15 @@ class Box extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 30.0),
-            Image.asset(
-              image,
-              width: 180.0,
-            ),
+            Image.asset(image, width: 200.0, height: 200.0),
             Text(
               title,
               style: TextStyle(
                 fontSize: 30.0,
                 fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
+              textAlign: TextAlign.center,
             ),
           ],
         ),

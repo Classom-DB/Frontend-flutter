@@ -26,6 +26,12 @@ flutter:
   assets:
     - images/main/
     - images/facility/
+    - images/room/
+    - images/room/drink/
+    - images/room/korean/
+    - images/room/western/
+    - images/room/other/
+    - images/claim/
 
   # example:
   fonts:

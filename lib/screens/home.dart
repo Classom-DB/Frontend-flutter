@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_classom/components/button.dart';
 import 'package:intl/intl.dart';
+import 'package:http/http.dart' as http;
 
 class Home extends StatefulWidget {
   @override
@@ -11,6 +13,21 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   String _timeString;
   Timer _timerClock;
+  String _parkingLot;
+
+  int _tap = 0;
+
+  _getData() async {
+    String url = 'http://hsmint-hong.iptime.org:7001/parking/pad/get/a1';
+    try {
+      http.Response response = await http.get(url);
+      var data = jsonDecode(response.body);
+      _parkingLot = 'FLOOR: B' + data['data'][0]['floor'].toString() + '\nSECTION: ' + data['data'][0]['section'];
+      print(_parkingLot);
+    } catch (e) {
+      print(e);
+    }
+  }
 
   void _getTime() {
     final DateTime now = DateTime.now();
@@ -26,6 +43,7 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
+    _getData();
     _timeString = _formatDateTime(DateTime.now());
     _timerClock = Timer.periodic(Duration(seconds: 1), (Timer t) => _getTime());
     super.initState();
@@ -46,8 +64,7 @@ class _HomeState extends State<Home> {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/main/background.jpg"),
-              colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.6), BlendMode.darken),
+              colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.6), BlendMode.darken),
               fit: BoxFit.fill,
             ),
           ),
@@ -117,12 +134,16 @@ class _HomeState extends State<Home> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          print("pressed parking");
+                          if (_tap == 0)
+                            _tap = 1;
+                          else
+                            _tap = 0;
                         });
                       },
                       child: Button(
-                        image: 'images/main/parking.png',
-                        title: '주차현황',
+                        title: _tap == 0 ? '주차현황' : '',
+                        image: _tap == 0 ? 'images/main/parking.png' : null,
+                        text: _tap == 1 ? _parkingLot : null,
                       ),
                     ),
                   ),

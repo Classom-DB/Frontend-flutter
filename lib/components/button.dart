@@ -26,7 +26,7 @@ class Button extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 width: 180.0,
-                margin: EdgeInsets.only(top: 30.0, bottom: 35.8),
+                margin: EdgeInsets.only(top: 50.0, bottom: 15.8),
               ),
             Text(
               title,

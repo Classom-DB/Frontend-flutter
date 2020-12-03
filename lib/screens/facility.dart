@@ -48,8 +48,7 @@ class _FacilityState extends State<Facility> {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/facility/background.jpg"),
-              colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.6), BlendMode.darken),
+              colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.6), BlendMode.darken),
               fit: BoxFit.fill,
             ),
           ),
@@ -93,8 +92,7 @@ class _FacilityState extends State<Facility> {
                       },
                       child: Button(
                         title: '결혼식장',
-                        image:
-                            tap[0] == 0 ? 'images/facility/wedding.png' : null,
+                        image: tap[0] == 0 ? 'images/facility/wedding.png' : null,
                         text: tap[0] == 1 ? '2층\n 10:00 ~ 21:00' : null,
                       ),
                     ),
@@ -111,9 +109,7 @@ class _FacilityState extends State<Facility> {
                       },
                       child: Button(
                         title: '레스토랑',
-                        image: tap[1] == 0
-                            ? 'images/facility/restaurant.png'
-                            : null,
+                        image: tap[1] == 0 ? 'images/facility/restaurant.png' : null,
                         text: tap[1] == 1 ? '21층\n 11:30 ~ 22:00' : null,
                       ),
                     ),
@@ -130,7 +126,7 @@ class _FacilityState extends State<Facility> {
                       },
                       child: Button(
                         title: '라운지',
-                        image: tap[2] == 0 ? 'images/facility/bar2.png' : null,
+                        image: tap[2] == 0 ? 'images/facility/rounge.png' : null,
                         text: tap[2] == 1 ? '21층\n 09:00 ~ 22:00' : null,
                       ),
                     ),
@@ -185,8 +181,7 @@ class _FacilityState extends State<Facility> {
                       },
                       child: Button(
                         title: '피트니스',
-                        image:
-                            tap[5] == 0 ? 'images/facility/fitness.png' : null,
+                        image: tap[5] == 0 ? 'images/facility/fitness.png' : null,
                         text: tap[5] == 1 ? '5층\n 07:00 ~ 22:00' : null,
                       ),
                     ),

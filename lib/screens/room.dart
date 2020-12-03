@@ -47,8 +47,7 @@ class _RoomState extends State<Room> {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/room/background.jpg"),
-              colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.6), BlendMode.darken),
+              colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.6), BlendMode.darken),
               fit: BoxFit.fill,
             ),
           ),
@@ -131,9 +130,24 @@ class _RoomState extends State<Room> {
                         });
                       },
                     ),
-                  ),
+                  )
                 ],
-              )
+              ),
+              Expanded(
+                child: Container(
+                  child: GestureDetector(
+                    child: Image.asset(
+                      'images/room/order.png',
+                      width: 180.0,
+                    ),
+                    onTap: () {
+                      print('pressed');
+                      Navigator.pushNamed(context, '/room/order');
+                    },
+                  ),
+                  alignment: Alignment.bottomRight,
+                ),
+              ),
             ],
           ),
         ),

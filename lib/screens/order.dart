@@ -47,7 +47,8 @@ class _OrderState extends State<Order> {
     try {
       await http.post(url, body: {'guest_id': 'a1', 'menu': menu, 'in_time': _formatDateTime(DateTime.now())});
       url = 'http://hsmint-hong.iptime.org:7001/income/add';
-      await http.post(url, body: {'year': DateTime.now().year, 'month': DateTime.now().month, 'day': DateTime.now().day, 'guest_id': 'a1', 'amount': money, 'type': 'room'});
+      var send = {"year": DateTime.now().year.toString(), "month": DateTime.now().month.toString(), "day": DateTime.now().day.toString(), "guest_id": "a1", "amount": money.toString(), "type": "room"};
+      await http.post(url, body: send);
     } catch (e) {
       print(e);
     }

@@ -39,6 +39,7 @@ class _OrderState extends State<Order> {
   }
 
   void _postMenu() async {
+    Map<String, String> headers = {'Host': 'cors-anywhere.herokuapp.com', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0'};
     String menu = "";
     String url = 'https://cors-anywhere.herokuapp.com/http://hsmint-hong.iptime.org:7001/roomservice/add';
     for (var item in items) {
@@ -48,7 +49,7 @@ class _OrderState extends State<Order> {
       await http.post(url, body: {'guest_id': 'a1', 'menu': menu, 'in_time': _formatDateTime(DateTime.now())});
       url = 'http://hsmint-hong.iptime.org:7001/income/add';
       var send = {"year": DateTime.now().year.toString(), "month": DateTime.now().month.toString(), "day": DateTime.now().day.toString(), "guest_id": "a1", "amount": money.toString(), "type": "room"};
-      await http.post(url, body: send);
+      await http.post(url, body: send, headers: headers);
     } catch (e) {
       print(e);
     }

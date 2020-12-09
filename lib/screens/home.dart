@@ -18,9 +18,10 @@ class _HomeState extends State<Home> {
   int _tap = 0;
 
   _getData() async {
+    Map<String, String> headers = {'Host': 'cors-anywhere.herokuapp.com', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0'};
     String url = 'https://cors-anywhere.herokuapp.com/http://hsmint-hong.iptime.org:7001/parking/pad/get/a1';
     try {
-      http.Response response = await http.get(url);
+      http.Response response = await http.get(url, headers: headers);
       var data = jsonDecode(response.body);
       _parkingLot = 'FLOOR: B' + data['data'][0]['floor'].toString() + '\nSECTION: ' + data['data'][0]['section'];
       print(_parkingLot);

@@ -1,6 +1,6 @@
 # flutter_classom
 
-Classom view 
+Database lesson
 
 ## Getting Started
 

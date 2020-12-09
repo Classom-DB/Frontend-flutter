@@ -40,7 +40,7 @@ class _OrderState extends State<Order> {
 
   void _postMenu() async {
     String menu = "";
-    String url = 'http://hsmint-hong.iptime.org:7001/roomservice/add';
+    String url = 'https://cors-anywhere.herokuapp.com/http://hsmint-hong.iptime.org:7001/roomservice/add';
     for (var item in items) {
       menu += item.item + " " + item.count.toString() + "\n";
     }

@@ -19,7 +19,7 @@ class _ClaimState extends State<Claim> {
   final myController = TextEditingController();
 
   _postRequest(String type) async {
-    String url = 'http://hsmint-hong.iptime.org:7001/claim/add';
+    String url = 'https://cors-anywhere.herokuapp.com/http://hsmint-hong.iptime.org:7001/claim/add';
     try {
       await http.post(url, body: {'guest_id': 'a1', 'message': myController.text, 'in_time': _formatDateTime(DateTime.now()), 'type': type});
     } catch (e) {

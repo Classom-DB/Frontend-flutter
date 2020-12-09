@@ -18,7 +18,7 @@ class _HomeState extends State<Home> {
   int _tap = 0;
 
   _getData() async {
-    String url = 'http://hsmint-hong.iptime.org:7001/parking/pad/get/a1';
+    String url = 'https://cors-anywhere.herokuapp.com/http://hsmint-hong.iptime.org:7001/parking/pad/get/a1';
     try {
       http.Response response = await http.get(url);
       var data = jsonDecode(response.body);

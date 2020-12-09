@@ -1,9 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_classom/components/Item.dart';
+import 'package:flutter_classom/components/item.dart';
 import 'package:flutter_classom/components/dataBloc.dart';
-import 'package:flutter_classom/components/itemAdd.dart';
 import 'package:flutter_classom/model/data.dart';
 import 'package:intl/intl.dart';
 
